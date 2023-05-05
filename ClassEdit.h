@@ -34,7 +34,7 @@ public:
 			drawLineDown(maxLength + 7);
 	}
 
-	string setDataString(string dataString) {
+	string setDataString(string dataString, int mode=0) { //0 - для всего , 1 - только для букв
 		
 		label = label + " Предыдущее значение: " + dataString;
 		draw();
@@ -55,9 +55,17 @@ public:
 				}
 				continue;
 			}
-			if (isDigit(ch) or isAlpha(ch) or isSpace(ch) or isSpec(ch)) {
-				cout << ch;
-				data = data + ch;
+			if (!mode) {
+				if (isDigit(ch) or isAlpha(ch)) {
+					cout << ch;
+					data = data + ch;
+				}
+			}
+			else {
+				if (isAlpha(ch)) {
+					cout << ch;
+					data = data + ch;
+				}
 			}
 		}
 		//data = inString;

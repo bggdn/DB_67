@@ -30,7 +30,7 @@ int main()
     SetConsoleOutputCP(1251);
     std::cout << "B8B8BB88B88BBBB88B8BB...\n";
     StudentDBClass* sdb = new StudentDBClass();  
-    sdb->FileName = "DB.txt";
+    sdb->FileName = "DB.bin";
     sdb->loadDataFromFile();
 
 

@@ -18,7 +18,7 @@ public:
 	void loadDataFromFile() {
 		string line;
 		int count = 0;
-		std::ifstream inFile(FileName); // окрываем файл для чтения
+		std::ifstream inFile(FileName, ios_base::binary); // окрываем файл для чтения
 		if (inFile.is_open())
 		{
 			bool isRecord = false;
@@ -37,10 +37,6 @@ public:
 					isRecord = false;
 					studentId++;
 					DataBase.push_front(*sn);
-					//Add(sn);  
-					//
-					//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-					/// add
 					for (int i = 0; i < 9; i++)
 						for (int j = 0; j < 10; j++)
 							sn->examsRecordsData[i][j].isEmpty = true;
@@ -114,7 +110,7 @@ public:
 	}
 	void saveDataToFile(string inFileName) {
 		std::ofstream outFile;          // поток для записи
-		ifstream iff(inFileName); //если файл есть удаляем
+		ifstream iff(inFileName, ios_base::binary); //если файл есть удаляем
 		if (iff.bad() == false)
 		{
 			iff.close();
@@ -124,8 +120,7 @@ public:
 			}
 
 		}
-		outFile.open(inFileName, std::ios::app); // окрываем файл для записи
-		// outFile.open(FileName, std::ios::app); // окрываем файл для записи
+		outFile.open(inFileName, ios_base::binary); // окрываем файл для записи
 		if (outFile.is_open())
 		{
 			StudentClass st = StudentClass();

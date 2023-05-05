@@ -22,7 +22,7 @@ public:
     int GetRecordCount() {
         string line;
         int count=0;
-        std::ifstream inFile(FileName); // окрываем файл для чтения
+        std::ifstream inFile(FileName, ios_base::binary); // окрываем файл для чтения
         if (inFile.is_open())
         {
             while (getline(inFile, line))
@@ -36,7 +36,7 @@ public:
     }
     static void display(string FileName) {
         string line;
-        ifstream inFile(FileName); // окрываем файл для чтения
+        ifstream inFile(FileName, ios_base::binary); // окрываем файл для чтения
         if (inFile.is_open())
             while (getline(inFile, line))
                 std::cout << line << std::endl;

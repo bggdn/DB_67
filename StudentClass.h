@@ -154,11 +154,11 @@ public:
 				break;
 			case 1:
 				ce->setLabel("¬ведите фамилию. ");
-				sn->surName = ce->setDataString(sn->surName);
+				sn->surName = ce->setDataString(sn->surName, 1);
 				break;
 			case 2:
 				ce->setLabel("¬ведите им€. ");
-				sn->name = ce->setDataString(sn->name);
+				sn->name = ce->setDataString(sn->name, 1);
 				break;
 			case 3:
 				ce->setLabel("¬ведите отчество. ");
@@ -166,7 +166,7 @@ public:
 				break;
 			case 4:
 				ce->setLabel("¬ведите название института. ");
-				sn->faculty = ce->setDataString(sn->faculty);
+				sn->faculty = ce->setDataString(sn->faculty, 1);
 				break;
 			case 5:
 				ce->setLabel("¬ведите название кафедры. ");
@@ -310,7 +310,6 @@ public:
 						if (itemNum > 9) {
 							system("cls");
 							cout << "ќшибка в сессию бывает только 10 дисциплин дл€ зачетов или экзаменов";
-							_getch();  //!!!!!!!!!!!!!!!????????
 							_getch();
 						}
 						else {
